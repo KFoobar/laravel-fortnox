@@ -9,12 +9,12 @@ trait HasRetrieve
     /**
      * Sends an get request for a single item.
      *
-     * @param mixed                                 $id
-     * @param \KFoobar\Fortnox\Services\QueryObject $query
+     * @param mixed                                $id
+     * @param \KFoobar\Fortnox\Objects\QueryObject $query
      *
      * @return mixed
      */
-    public function get(mixed $id, QueryObject $query = null): mixed
+    public function get(mixed $id, ?QueryObject $query = null): mixed
     {
         $endpoint = sprintf('%s/%s', $this->endpoint, $id);
 
@@ -26,11 +26,11 @@ trait HasRetrieve
     /**
      * Sends an get request for all items.
      *
-     * @param \KFoobar\Fortnox\Services\QueryObject $query
+     * @param \KFoobar\Fortnox\Objects\QueryObject $query
      *
      * @return mixed
      */
-    public function all(QueryObject $query = null): mixed
+    public function all(?QueryObject $query = null): mixed
     {
         $response = $this->client->get($this->endpoint, $query?->toArray() ?? []);
 
