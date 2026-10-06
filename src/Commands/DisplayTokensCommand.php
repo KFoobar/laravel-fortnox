@@ -28,11 +28,11 @@ class DisplayTokensCommand extends Command
      */
     public function handle()
     {
-        $this->components->info(
+        $this->info(
             'Access token: ' . Cache::get('fortnox-access-token', 'Missing')
         );
 
-        $this->components->info(
+        $this->info(
             'Refresh token: ' . Cache::get('fortnox-refresh-token', 'Missing')
         );
 

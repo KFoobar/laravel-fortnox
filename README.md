@@ -6,7 +6,7 @@ Simplifies integration with the Fortnox API.
 
 ## Requirements
 
-- Laravel 6 or higher
+- Laravel 8 or higher
 - PHP 8.0 or higher
 - Valid client id (from Fortnox)
 - Valid client secret (from Fortnox)

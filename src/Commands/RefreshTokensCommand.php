@@ -31,13 +31,13 @@ class RefreshTokensCommand extends Command
         try {
             $client->refresh();
         } catch (\Exception $e) {
-            $this->components->error('Failed to refresh tokens!');
-            $this->components->error('Message: ' . $e->getMessage());
+            $this->error('Failed to refresh tokens!');
+            $this->error('Message: ' . $e->getMessage());
 
             return Command::FAILURE;
         }
 
-        $this->components->info('Successfully refreshed tokens!');
+        $this->info('Successfully refreshed tokens!');
 
         return Command::SUCCESS;
     }

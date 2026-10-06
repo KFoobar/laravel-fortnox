@@ -29,7 +29,7 @@ class PurgeTokensCommand extends Command
     public function handle()
     {
         if (!$this->confirmAction()) {
-            $this->components->info('Aborting...');
+            $this->info('Aborting...');
 
             return Command::SUCCESS;
         }
@@ -38,12 +38,12 @@ class PurgeTokensCommand extends Command
             Cache::forget('fortnox-access-token');
             Cache::forget('fortnox-refresh-token');
         } catch (\Exception) {
-            $this->components->error('Failed to cached tokens!');
+            $this->error('Failed to cached tokens!');
 
             return Command::FAILURE;
         }
 
-        $this->components->info('Successfully cleared cached tokens!');
+        $this->info('Successfully cleared cached tokens!');
 
         return Command::SUCCESS;
     }
@@ -55,7 +55,7 @@ class PurgeTokensCommand extends Command
      */
     protected function confirmAction(): bool
     {
-        $this->components->warn('This will clear all your cached tokens! Make sure you add a valid refresh token to your .env file to continue using the Fortnox API.');
+        $this->warn('This will clear all your cached tokens! Make sure you add a valid refresh token to your .env file to continue using the Fortnox API.');
 
         return $this->confirm('Do you want to continue?');
     }
