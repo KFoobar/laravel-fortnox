@@ -122,17 +122,19 @@ class Client implements ClientInterface
      */
     protected function catchError(Response $response): void
     {
-        if ($response->json('ErrorInformation')) {
-            $message = !empty($response->json('ErrorInformation.message'))
-                ? $response->json('ErrorInformation.message')
-                : $response->json('ErrorInformation.Message');
-
-            $code = !empty($response->json('ErrorInformation.code'))
-                ? $response->json('ErrorInformation.code')
-                : $response->json('ErrorInformation.Code');
-
-            throw new FortnoxException(sprintf('%s (%s)', $message, $code), $response->status());
+        if (empty($response->json('ErrorInformation'))) {
+            throw new FortnoxException(sprintf('%s (%s)', $response->reason(), $response->status()), $response->status());
         }
+
+        $message = !empty($response->json('ErrorInformation.message'))
+            ? $response->json('ErrorInformation.message')
+            : $response->json('ErrorInformation.Message');
+
+        $code = !empty($response->json('ErrorInformation.code'))
+            ? $response->json('ErrorInformation.code')
+            : $response->json('ErrorInformation.Code');
+
+        throw new FortnoxException(sprintf('%s (%s)', $message, $code), $response->status());
     }
 
     /**
