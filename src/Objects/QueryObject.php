@@ -55,7 +55,7 @@ class QueryObject
      */
     public function setSearch(string $key, string $value)
     {
-        $this->search[$key] = $search;
+        $this->search[$key] = $value;
 
         return $this;
     }
@@ -115,7 +115,7 @@ class QueryObject
      */
     public function setSortOrder(string $sortOrder)
     {
-        if (in_array($sortOrder, ['ascending', 'descending'])) {
+        if (!in_array($sortOrder, ['ascending', 'descending'])) {
             throw new FortnoxException('Sort order must be ascending or descending.');
         }
 
