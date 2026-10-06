@@ -15,6 +15,7 @@ class Invoices implements ResourceInterface
     use HasRetrieve;
     use HasUpdate;
 
+    protected ClientInterface $client;
     protected $endpoint = 'invoices';
 
     /**

@@ -2,15 +2,17 @@
 
 namespace KFoobar\Fortnox\Services;
 
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 use KFoobar\Fortnox\Exceptions\FortnoxException;
 use KFoobar\Fortnox\Interfaces\ClientInterface;
 
 class Client implements ClientInterface
 {
+    protected PendingRequest $client;
+
     /**
      * Constructs a new instance.
      */

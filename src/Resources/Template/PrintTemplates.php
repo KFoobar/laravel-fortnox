@@ -14,6 +14,7 @@ class PrintTemplates implements ResourceInterface
 {
     use HasRetrieve;
 
+    protected ClientInterface $client;
     protected $endpoint = 'printtemplates';
 
     /**

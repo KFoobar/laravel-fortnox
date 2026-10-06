@@ -15,6 +15,7 @@ class Accounts implements ResourceInterface
     use HasRetrieve;
     use HasUpdate;
 
+    protected ClientInterface $client;
     protected $endpoint = 'accounts';
 
     /**

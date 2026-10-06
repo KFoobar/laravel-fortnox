@@ -16,6 +16,7 @@ class Customers implements ResourceInterface
     use HasRetrieve;
     use HasUpdate;
 
+    protected ClientInterface $client;
     protected $endpoint = 'customers';
 
     /**
