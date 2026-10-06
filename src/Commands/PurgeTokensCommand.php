@@ -38,7 +38,7 @@ class PurgeTokensCommand extends Command
             Cache::forget('fortnox-access-token');
             Cache::forget('fortnox-refresh-token');
         } catch (\Exception) {
-            $this->error('Failed to cached tokens!');
+            $this->error('Failed to clear cached tokens!');
 
             return Command::FAILURE;
         }
