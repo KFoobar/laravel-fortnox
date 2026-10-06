@@ -138,7 +138,7 @@ class Fortnox
     /**
      * Returns the projects resource.
      *
-     * @return \KFoobar\Fortnox\Resources\Account\Projects
+     * @return \KFoobar\Fortnox\Resources\Project\Projects
      */
     public function projects()
     {
